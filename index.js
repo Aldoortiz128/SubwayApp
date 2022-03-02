@@ -26,13 +26,15 @@ fetch(req)
         titleArticle = targetArticle.title
         console.log(titleArticle)
 
+        let articleHeaderLi = document.createElement('ul')
         let articleHeader = document.createElement('a')
         articleHeader.innerText = titleArticle
         articleHeader.href = targetArticle.url
+        let articleButton = document.createElement('button')
 
-        let articleHeaderLi = document.createElement('ul')
         listArticles.appendChild(articleHeaderLi)
-        articleHeaderLi.appendChild(articleHeader)
+        articleHeaderLi.appendChild(articleButton)
+        articleButton.appendChild(articleHeader)
         
     }
 }
