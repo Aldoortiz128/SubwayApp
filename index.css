@@ -1,0 +1,13 @@
+#nav-bar {
+  display: flex;
+  border: 5px solid red;
+  justify-content: space-around;
+}
+h1, h3 {
+  text-align: center;
+}
+#logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
