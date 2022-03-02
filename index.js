@@ -47,31 +47,73 @@ fetch(req)
         articleHeader.appendChild(articleBreak)
         articleHeader.appendChild(articleImage)
         //articleBreak.appendChild(articleImage)
-        
     }
 }
 )
 
-// const https = require('https');
-// https.get(
-//   "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm",
-//   { headers: { "x-api-key": 'lOW2hqGP0nbKbmx535RD28c1DonpfDF58UCbCfu3'}
-//   },
-//   (resp) => {
-//     resp.on('data', (chunk) => {
-//       console.log("Receiving Data");
-//     });
-//     resp.on('end', () => {
-//       console.log("Finished receiving data");
-//     });
-//   }).on("error", (err) => {
-//     console.log("Error: " + err.message);
-//   });
-
-
+//Subway Updates Tweets
+fetch("https://twitterfetch.p.rapidapi.com/user/NYCTSubway", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "twitterfetch.p.rapidapi.com",
+		"x-rapidapi-key": "518100b9f8mshb80f400f53a15c9p18dc87jsn8ddb456d1fdc"
+	}
+})
+.then(response => response.json())
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
 });
 
 
-    
+//Train Crime Tweets
+fetch("https://twitterfetch.p.rapidapi.com/user/NYPDTransit", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "twitterfetch.p.rapidapi.com",
+		"x-rapidapi-key": "518100b9f8mshb80f400f53a15c9p18dc87jsn8ddb456d1fdc"
+	}
+})
+.then(response => response.json())
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
 
+// //Complicated MTA Tweet Fetch
+// fetch("https://twitter60.p.rapidapi.com/user_tweets?user_id=94129050", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "twitter60.p.rapidapi.com",
+// 		"x-rapidapi-key": "518100b9f8mshb80f400f53a15c9p18dc87jsn8ddb456d1fdc"
+// 	}
+// })
+// .then(response => response.json())
+// .then(response => {
+// 	console.log(
+// response
+// .data
+// .user
+// .result
+// .timeline
+// .timeline
+// .instructions[1]
+// .entries[0]
+// .content
+// .itemContent
+// .tweet_results
+// .result
+// .legacy
+// .full_text
+// );
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
 
+}
+)
