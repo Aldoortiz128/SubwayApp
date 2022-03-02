@@ -3,6 +3,7 @@ var url = 'https://newsapi.org/v2/everything?' +
           'from=2022-02-02&' +
           'sortBy=popularity&' +
           'apiKey=afa69d40429845f6918197165bc92bc6';
+//Update to be dynamic and pull data based on current date using string interpolation
 
 var req = new Request(url);
 
