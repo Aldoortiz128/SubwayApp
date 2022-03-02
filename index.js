@@ -1,3 +1,6 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+
 var url = 'https://newsapi.org/v2/everything?' +
           'q=MTA+NYC+crime&' +
           'from=2022-02-02&' +
@@ -57,7 +60,7 @@ fetch(req)
 //   });
 
 
-
+});
 
 
     
