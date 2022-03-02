@@ -31,13 +31,22 @@ fetch(req)
 
         let articleHeaderLi = document.createElement('ul')
         let articleHeader = document.createElement('a')
+        let articleImage = document.createElement('img')
+        let articleBreak = document.createElement('br')
         articleHeader.innerText = titleArticle
         articleHeader.href = targetArticle.url
+        articleImage.src=targetArticle.urlToImage
+        articleImage.width="250"
+        articleImage.height="300"
+        articleImage.alt=targetArticle.source.name
         let articleButton = document.createElement('button')
 
         listArticles.appendChild(articleHeaderLi)
         articleHeaderLi.appendChild(articleButton)
         articleButton.appendChild(articleHeader)
+        articleHeader.appendChild(articleBreak)
+        articleHeader.appendChild(articleImage)
+        //articleBreak.appendChild(articleImage)
         
     }
 }
