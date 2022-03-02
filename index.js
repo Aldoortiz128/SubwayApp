@@ -40,21 +40,21 @@ fetch(req)
 }
 )
 
-const https = require('https');
-https.get(
-  "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm",
-  { headers: { "x-api-key": 'lOW2hqGP0nbKbmx535RD28c1DonpfDF58UCbCfu3'}
-  },
-  (resp) => {
-    resp.on('data', (chunk) => {
-      console.log("Receiving Data");
-    });
-    resp.on('end', () => {
-      console.log("Finished receiving data");
-    });
-  }).on("error", (err) => {
-    console.log("Error: " + err.message);
-  });
+// const https = require('https');
+// https.get(
+//   "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm",
+//   { headers: { "x-api-key": 'lOW2hqGP0nbKbmx535RD28c1DonpfDF58UCbCfu3'}
+//   },
+//   (resp) => {
+//     resp.on('data', (chunk) => {
+//       console.log("Receiving Data");
+//     });
+//     resp.on('end', () => {
+//       console.log("Finished receiving data");
+//     });
+//   }).on("error", (err) => {
+//     console.log("Error: " + err.message);
+//   });
 
 
 
