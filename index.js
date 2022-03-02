@@ -9,6 +9,7 @@ var req = new Request(url);
 let allArticles;
 let targetArticle;
 let titleArticle;
+let listArticles = document.getElementById('articles')
 
 
 fetch(req)
@@ -18,13 +19,24 @@ fetch(req)
         console.log(response.articles)
 
     allArticles = response.articles
-    
-    for (let i = 0; i < allArticles.length; i++) {
-        console.log(allArticles[i])
-    }
 
+    for (let i = 0; i < allArticles.length; i++) {
+        targetArticle = allArticles[i]
+        titleArticle = targetArticle.title
+        console.log(titleArticle)
+
+        let articleHeader = document.createElement('a')
+        articleHeader.innerText = titleArticle
+        articleHeader.href = targetArticle.url
+
+        let articleHeaderLi = document.createElement('li')
+        listArticles.appendChild(articleHeaderLi)
+        articleHeaderLi.appendChild(articleHeader)
+        
+    }
 }
 )
+
 
 
 
