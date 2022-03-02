@@ -1,5 +1,5 @@
 var url = 'https://newsapi.org/v2/everything?' +
-          'q=MTA&' +
+          'q=MTA+NYC+crime&' +
           'from=2022-02-02&' +
           'sortBy=popularity&' +
           'apiKey=afa69d40429845f6918197165bc92bc6';
@@ -29,7 +29,7 @@ fetch(req)
         articleHeader.innerText = titleArticle
         articleHeader.href = targetArticle.url
 
-        let articleHeaderLi = document.createElement('li')
+        let articleHeaderLi = document.createElement('ul')
         listArticles.appendChild(articleHeaderLi)
         articleHeaderLi.appendChild(articleHeader)
         
