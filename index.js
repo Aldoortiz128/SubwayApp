@@ -131,7 +131,15 @@ let tweetUrl;
     
 //     //First Half of Tweets
     for (let i = 0; i <= 5; i++) {
-     console.log("@NYPDTransit")
+
+    let tweetHeaderLi = document.createElement('ul')
+    
+    let tweetContent = allNYPDTweets
+
+    
+
+    console.log("@NYPDTransit")
+    
     console.log(
      allNYPDTweets
      .entries[i]
