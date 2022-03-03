@@ -11,9 +11,10 @@ document.getElementById('articles').style.display='none'
         document.getElementById('articles').style.display='block'
     })
 
-//Notes:
+//Notess:
 //Stretch feature: witness a crime?
 //add a POST request form to the contact us page (alerts by users board with user location)
+//then fetch that data so the page constantly updates?
 //Set the alternative image to articles without an image to the MTA Logo***
 //Have progress loading bar for each DOM Content 
 //Dynamically size Articles with Flexbox
