@@ -20,11 +20,15 @@ document.getElementById('NYPDTweets').style.display='none'
 let crimeFeed= document.getElementById('crimeFeed')
 crimeFeed.addEventListener('click', () => {
     document.getElementById('NYPDTweets').style.display='block'
+    document.getElementById('articles').style.display='none'
 })
+
+
 document.getElementById('articles').style.display='none'
     let news= document.getElementById('news')
     news.addEventListener('click', () => {
         document.getElementById('articles').style.display='block'
+        document.getElementById('NYPDTweets').style.display='none'
     })
 
 //Notess:
