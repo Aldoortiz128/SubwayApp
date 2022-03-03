@@ -21,6 +21,7 @@ let crimeFeed= document.getElementById('crimeFeed')
 crimeFeed.addEventListener('click', () => {
     document.getElementById('NYPDTweets').style.display='block'
     document.getElementById('articles').style.display='none'
+    document.getElementById('MTATweets').style.display='none'
 })
 
 
@@ -29,8 +30,16 @@ document.getElementById('articles').style.display='none'
     news.addEventListener('click', () => {
         document.getElementById('articles').style.display='block'
         document.getElementById('NYPDTweets').style.display='none'
+        document.getElementById('MTATweets').style.display='none'
     })
 
+document.getElementById('MTATweets').style.display='none'
+let updates= document.getElementById('updates')
+updates.addEventListener('click', () => {
+    document.getElementById('MTATweets').style.display='block'
+    document.getElementById('NYPDTweets').style.display='none'
+    document.getElementById('articles').style.display='none'
+})
 //Notess:
 //Stretch feature: witness a crime?
 //add a POST request form to the contact us page (alerts by users board with user location)
