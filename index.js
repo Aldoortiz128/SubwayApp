@@ -157,7 +157,7 @@ let hashtag = "@NYPDTransit"
 let tweetText;
 let tweetTime;
 let tweetUrl;
-//let tweetMedia;
+let tweetMedia;
 
 
 // Tweets for NYPD Transit commented out For Now -- must add Event Listener
@@ -223,17 +223,16 @@ let tweetUrl;
         .id_str
 
          //The data containing the images of the tweet
-        //  tweetMedia=
-        //  allNYPDTweets
-        // .entries[i]
-        // .content
-        // .itemContent
-        // .tweet_results
-        // .result
-        // .legacy
-        // .entities
-        // .media[0]
-        // .media_url_https
+        tweetMedia=
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .entities
+        console.log(tweetMedia)
         
         
         //Clickable url - string interpolation of URL Data property
