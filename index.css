@@ -1,6 +1,10 @@
+body {
+  background-color: teal
+}
+
 #nav-bar {
   display: flex;
-  border: 5px solid red;
+  border: 5px solid yellow;
   justify-content: space-around;
 }
 h1, h3 {
