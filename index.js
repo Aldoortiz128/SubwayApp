@@ -157,6 +157,7 @@ let hashtag = "@NYPDTransit"
 let tweetText;
 let tweetTime;
 let tweetUrl;
+let tweetMediaSearch;
 let tweetMedia;
 
 
@@ -222,20 +223,23 @@ let tweetMedia;
         .legacy
         .id_str
 
-         //The data containing the images of the tweet
-       // tweetMedia=
-        //allNYPDTweets
-        ///.entries[i]
-        //.content
-        //.itemContent
-        //.tweet_results
-        //.result
-        // .legacy
-        // .extended_entities
-        // .media[0]
-        // .media_url_https
-        // console.log(tweetMedia)
         
+    //The data containing the images of the tweet
+    tweetMediaSearch=
+    allNYPDTweets
+    .entries[i]
+    .content
+    .itemContent
+    .tweet_results
+    .result
+    .legacy
+
+    if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+    else {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+   
+
+   console.log(tweetMedia)
+
         
         //Clickable url - string interpolation of URL Data property
         clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
@@ -250,7 +254,7 @@ let tweetMedia;
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
-        //let tweetImage = document.createElement('img')
+        let tweetImage = document.createElement('img')
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
@@ -262,7 +266,7 @@ let tweetMedia;
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
         tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
-        //tweetImage.src = tweetMedia
+        tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
         tweetUser.target = "_blank"
@@ -276,6 +280,7 @@ let tweetMedia;
         tweetDiv.appendChild(tweetHeader)
         tweetHeader.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
+        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
         tweetDiv.appendChild(tweetStamp)
      }
@@ -316,18 +321,24 @@ let tweetMedia;
         .id_str
 
         //The data containing the images of the tweet
-        // tweetMedia=
-        //  allNYPDTweets
-        // .entries[i]
-        // .content
-        // .itemContent
-        // .tweet_results
-        // .result
-        // .legacy
-        // .entities
-        // .media[0]
-        // .media_url_https
-        
+        tweetMediaSearch=
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+
+        if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+        //if (tweetMediaSearch.retweeted_status_result && !tweetMediaSearch.retweeted_status_result.result.quoted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+        //else {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+      
+    
+       
+
+       console.log(tweetMedia)
+
         clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
         
         //grabs NYPD Tweet div
@@ -339,7 +350,7 @@ let tweetMedia;
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
-        //let tweetImage = document.createElement('img')
+        let tweetImage = document.createElement('img')
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
@@ -351,7 +362,7 @@ let tweetMedia;
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
         tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
-        //tweetImage.src = tweetMedia
+        tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
         tweetUser.target = "_blank"
@@ -365,7 +376,7 @@ let tweetMedia;
         tweetDiv.appendChild(tweetHeader)
         tweetHeader.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
-        //tweetDiv.appendChild(tweetImage)
+        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
         tweetDiv.appendChild(tweetStamp)
     
