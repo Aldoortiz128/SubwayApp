@@ -1,9 +1,15 @@
 window.addEventListener('DOMContentLoaded', (event) => {
+    
     console.log('DOM fully loaded and parsed');
     NYPDTweetFetch()
     MTATweetFetch()
 }
 )
+document.getElementById('articles').style.display='none'
+    let news= document.getElementById('news')
+    news.addEventListener('click', () => {
+        document.getElementById('articles').style.display='block'
+    })
 
 //Notes:
 //Set the alternative image to articles without an image to the MTA Logo***
@@ -34,12 +40,13 @@ var url = 'https://newsapi.org/v2/everything?' +
 
 var req = new Request(url);
 
-let allArticles;
-let targetArticle;
-let titleArticle;
-let authorArticle;
-let timeArticle;
-let listArticles = document.getElementById('articles')
+let allArticles; //holds entire fetch response object
+let targetArticle; //current article we are iterating
+let titleArticle; //title of the current article we are iterating
+let authorArticle; // author of the current article we are iterating
+let timeArticle; // time the aricle was posted
+//grabs article div
+let articleDiv = document.getElementById('articles')
 
 
 fetch(req)
@@ -48,9 +55,9 @@ fetch(req)
     .then(response => {
         console.log(response.articles)
 
-    allArticles = response.articles
+    allArticles = response.articles // line 43 in effect
 
-    for (let i = 0; i < allArticles.length; i++) {
+    for (let i = 0; i < allArticles.length; i++) { //loop to iterate through the articles
         targetArticle = allArticles[i]
         titleArticle = targetArticle.title
         authorArticle = targetArticle.source.name
@@ -89,7 +96,7 @@ fetch(req)
         articleImage.height="600"
         articleImage.alt=targetArticle.source.name
         let articleButton = document.createElement('button')
-        listArticles.appendChild(articlePublication)
+        articleDiv.appendChild(articlePublication)
         articlePublication.appendChild(articleDate)
         articleDate.appendChild(articleHeaderLi)
         articleHeaderLi.appendChild(articleButton)
@@ -137,9 +144,9 @@ let tweetUrl;
     let tweetContent = allNYPDTweets
 
     
-
+// userName of tweeter
     console.log("@NYPDTransit")
-    
+   //text of the tweet 
     console.log(
      allNYPDTweets
      .entries[i]
@@ -150,7 +157,7 @@ let tweetUrl;
      .legacy
      .full_text
      );
-    
+    //tweet timestamp
      console.log(
      allNYPDTweets
      .entries[i]
@@ -161,7 +168,7 @@ let tweetUrl;
      .legacy
      .created_at
      );
-
+//url
      tweetUrl = 
     allNYPDTweets
     .entries[i]
@@ -172,7 +179,7 @@ let tweetUrl;
      .legacy
      .id_str
     
-
+// tweet interpolation
     console.log(
          `https://twitter.com/NYPDTransit/status/${tweetUrl}`
          );
@@ -249,7 +256,7 @@ fetch("https://twitter135.p.rapidapi.com/UserTweets/?id=66379182&count=21", {
  .then(response => response.json())
 
  .then(response => {
-
+// storing tweets in an object variable 
  allMTATweets = 
  response
 .data

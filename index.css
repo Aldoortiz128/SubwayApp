@@ -18,3 +18,7 @@ h1, h3 {
 a {
   font-size: 32px;
 }
+/* #articles{
+  display: flex;
+  flex-direction: column;
+} */
