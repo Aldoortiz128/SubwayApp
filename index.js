@@ -12,7 +12,7 @@ document.getElementById('articles').style.display='none'
     })
 
 //Notes:
-//Stretch feature: add a POST request form to the contact us page
+//Stretch feature: add a POST request form to the contact us page (alerts by users board)
 //Set the alternative image to articles without an image to the MTA Logo***
 //Have progress loading bar for each DOM Content 
 //Dynamically size Articles with Flexbox
