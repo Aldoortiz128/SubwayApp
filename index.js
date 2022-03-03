@@ -235,9 +235,13 @@ let tweetMedia;
     .legacy
 
     if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-    else {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    if(tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    //if (tweetMediaSearch.retweeted_status_result.result.quoted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    
+    
+    
+    
    
-
    console.log(tweetMedia)
 
         
@@ -331,8 +335,11 @@ let tweetMedia;
         .legacy
 
         if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-        //if (tweetMediaSearch.retweeted_status_result && !tweetMediaSearch.retweeted_status_result.result.quoted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-        //else {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+         if(tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+
+        //if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+
+          
       
     
        
