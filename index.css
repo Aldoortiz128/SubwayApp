@@ -1,6 +1,22 @@
 body {
   background-color: teal
 }
+.articleCard{
+  background-color: yellow;
+  width: "800";
+  height: "400"
+}
+.NYPDTweetDivs {
+  background-color: yellow;
+  width: "50vh";
+  height: "50vh"
+}
+
+.MTATweetDivs {
+background-color: yellow;
+width: "50vh";
+  height: "50vh"
+}
 
 #nav-bar {
   display: flex;

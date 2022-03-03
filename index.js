@@ -3,8 +3,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     NYPDTweetFetch()
     MTATweetFetch()
-}
-)
+
+
+//NYC Crime API
+
+//     fetch("https://data.cityofnewyork.us/resource/5uac-w243.json?$$app_token=CaIib4ywwEipZFXnVcT8EUsyV", {
+//         "method": "GET"
+//     }
+//     )
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+    
+// }
+// )
 document.getElementById('articles').style.display='none'
     let news= document.getElementById('news')
     news.addEventListener('click', () => {
@@ -88,6 +99,7 @@ fetch(req)
         articleDate.innerText = timeArticle
         articleHeader.innerText = titleArticle
         articleHeader.href = targetArticle.url
+        articleHeader.target = "_blank"
 
         let timeoutID;
         function delayedLoad() {
@@ -98,21 +110,34 @@ fetch(req)
         articleImage.width="800"
         articleImage.height="600"
         articleImage.alt=targetArticle.source.name
-        let articleButton = document.createElement('button')
-        articleDiv.appendChild(articlePublication)
+        let articleCard = document.createElement('div')
+        articleCard.className = "articleCard"
+        // articleCard.style.width="800"
+        // articleCard.style.height="400"
+        //articleCard.style.backgroundColor="white"
+        //articleDiv.appendChild(articlePublication)
+        //articlePublication.appendChild(articleDate)
+        //articleDate.appendChild(articleHeaderLi)
+        articleDiv.appendChild(articleHeaderLi)
+        articleHeaderLi.appendChild(articleCard)
+        articleCard.appendChild(articlePublication)
         articlePublication.appendChild(articleDate)
-        articleDate.appendChild(articleHeaderLi)
-        articleHeaderLi.appendChild(articleButton)
-        articleButton.appendChild(articleHeader)
+        articleCard.appendChild(articleHeader)
         articleHeader.appendChild(articleBreak)
         articleHeader.appendChild(articleImage)
     }
 }
 )
 
+
+
+
 //Function to FetchCall for all NYPD Update Tweets
 function NYPDTweetFetch() {
 let allNYPDTweets;
+let hashtag = "@NYPDTransit"
+let tweetText;
+let tweetTime;
 let tweetUrl;
 
 
@@ -129,6 +154,7 @@ let tweetUrl;
 
  .then(response => {
 
+    //variable containing the data set of all NYPD Tweets
      allNYPDTweets = 
      response
      .data
@@ -139,98 +165,155 @@ let tweetUrl;
      .instructions[1]
      console.log(allNYPDTweets)
     
-//     //First Half of Tweets
+ //First Half of Tweets
     for (let i = 0; i <= 5; i++) {
 
-    let tweetHeaderLi = document.createElement('ul')
-    
-    let tweetContent = allNYPDTweets
-
-    
-// userName of tweeter
-    console.log("@NYPDTransit")
-   //text of the tweet 
-    console.log(
-     allNYPDTweets
-     .entries[i]
-     .content
-     .itemContent
-     .tweet_results
-     .result
-     .legacy
-     .full_text
-     );
-    //tweet timestamp
-     console.log(
-     allNYPDTweets
-     .entries[i]
-     .content
-     .itemContent
-     .tweet_results
-     .result
-     .legacy
-     .created_at
-     );
-//url
-     tweetUrl = 
-    allNYPDTweets
-    .entries[i]
-     .content
-     .itemContent
-    .tweet_results
-    .result
-     .legacy
-     .id_str
-    
-// tweet interpolation
-    console.log(
-         `https://twitter.com/NYPDTransit/status/${tweetUrl}`
-         );
+        //The data containing text of the tweet
+        tweetText=
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .full_text
+        
+        //The data containing timestamp of the tweet
+        tweetTime=
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .created_at
+        
+        //The data containing the url of the tweet
+        tweetUrl = 
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .id_str
+        
+        //Clickable url - string interpolation of URL Data property
+        clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
+        
+        //grabs MTA Tweet div
+        let NYPDTweetDiv = document.getElementById('NYPDTweets')
+        //creates new elements to place tweets
+        let tweetHeaderLi = document.createElement('ul')
+        let tweetDiv = document.createElement('div')
+        tweetDiv.classList.add("NYPDTweetDivs")
+        let tweetHeader = document.createElement('h1')
+        let tweetBreak = document.createElement('br')
+        let tweetUser = document.createElement('a')
+        let tweetIcon = document.createElement('img')
+        let tweetDesc = document.createElement('p')
+        let tweetStamp = document.createElement('p')
+        
+        //styling of new elements
+        tweetHeader.innerText = "NYPD Transit"
+        tweetIcon.height="50"
+        tweetIcon.width="50"
+        // tweetDiv.style.width="50vh"
+        // tweetDiv.style.height="50vh"
+        //tweetDiv.style.backgroundColor="white"
+        tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        tweetUser.innerText = hashtag
+        tweetUser.href = clickUrl
+        tweetUser.target = "_blank"
+        tweetDesc.innerText = tweetText
+        tweetStamp.innerText = tweetTime
+        
+        //appending of new elements to the DOM
+        NYPDTweetDiv.appendChild(tweetHeaderLi)
+        tweetHeaderLi.appendChild(tweetDiv)
+        tweetDiv.appendChild(tweetIcon)
+        tweetDiv.appendChild(tweetHeader)
+        tweetHeader.appendChild(tweetBreak)
+        tweetDiv.appendChild(tweetUser)
+        tweetDiv.appendChild(tweetDesc)
+        tweetDiv.appendChild(tweetStamp)
      }
     
    
     
 //2nd Half of Tweets
-    for (let i = 7; i <= 20; i++) {
-        console.log("@NYPDTransit")
-        console.log(
+    for (let i = 7; i <= 8; i++) {
+     
+        tweetText=
         allNYPDTweets
-         .entries[i]
-         .content
-         .itemContent
-         .tweet_results
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
         .result
         .legacy
         .full_text
-         )
-    
-     console.log(
-         allNYPDTweets
-         .entries[i]
-         .content
-         .itemContent
-         .tweet_results
-         .result
-         .legacy
-         .created_at
-         );
-
         
-     tweetUrl = allNYPDTweets
-    .entries[i]
-    .content
-     .itemContent
-    .tweet_results
-     .result
-     .legacy
-     .id_str
-    
-    
-
-     console.log(
-       `https://twitter.com/NYPDTransit/status/${tweetUrl}`
-        );
-    
+        tweetTime=
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .created_at
+        
+        tweetUrl = 
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .legacy
+        .id_str
+        
+        clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
+        
+        //grabs MTA Tweet div
+        let NYPDTweetDiv = document.getElementById('NYPDTweets')
+        let tweetHeaderLi = document.createElement('ul')
+        let tweetDiv = document.createElement('div')
+        tweetDiv.className = "NYPDTweetDivs"
+        let tweetHeader = document.createElement('h1')
+        let tweetBreak = document.createElement('br')
+        let tweetUser = document.createElement('a')
+        let tweetIcon = document.createElement('img')
+        let tweetDesc = document.createElement('p')
+        let tweetStamp = document.createElement('p')
+        
+        
+        tweetHeader.innerText = "NYPD Transit"
+        tweetIcon.height="50"
+        tweetIcon.width="50"
+        // tweetDiv.style.width="50vh"
+        // tweetDiv.style.height="50vh"
+        //tweetDiv.style.backgroundColor="white"
+        tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        tweetUser.innerText = hashtag
+        tweetUser.href = clickUrl
+        tweetUser.target = "_blank"
+        tweetDesc.innerText = tweetText
+        tweetStamp.innerText = tweetTime
+        
+        
+        NYPDTweetDiv.appendChild(tweetHeaderLi)
+        tweetHeaderLi.appendChild(tweetDiv)
+        tweetDiv.appendChild(tweetIcon)
+        tweetDiv.appendChild(tweetHeader)
+        tweetHeader.appendChild(tweetBreak)
+        tweetDiv.appendChild(tweetUser)
+        tweetDiv.appendChild(tweetDesc)
+        tweetDiv.appendChild(tweetStamp)
     
      }
     
@@ -243,7 +326,18 @@ let tweetUrl;
 
 //Function to FetchCall for all Subway Update Tweets
 function MTATweetFetch() {
+
+
  let allMTATweets;
+ let hashtag = "@NYCTSubway"
+ let tweetText;
+ let tweetTime;
+ let tweetUrl;
+ let clickUrl;
+
+
+
+
 
 //Tweets for MTA Subway Updates
 
@@ -270,10 +364,12 @@ fetch("https://twitter135.p.rapidapi.com/UserTweets/?id=66379182&count=21", {
 .instructions[1]
 console.log(allMTATweets)
 
+
 //First Half of Tweets
 for (let i = 0; i <= 5; i++) {
-console.log("@NYCTSubway")
-console.log(
+//console.log(hashtag)
+
+tweetText=
 allMTATweets
 .entries[i]
 .content
@@ -282,9 +378,8 @@ allMTATweets
 .result
 .legacy
 .full_text
-);
 
-console.log(
+tweetTime=
 allMTATweets
 .entries[i]
 .content
@@ -293,8 +388,6 @@ allMTATweets
 .result
 .legacy
 .created_at
-);
-
 
 tweetUrl = 
 allMTATweets
@@ -306,18 +399,54 @@ allMTATweets
 .legacy
 .id_str
 
+clickUrl = `https://twitter.com/NYCTSubway/status/${tweetUrl}`
 
-console.log(
-    `https://twitter.com/NYCTSubway/status/${tweetUrl}`
-    );
+//grabs MTA Tweet div
+let MTATweetDiv = document.getElementById('MTATweets')
+let tweetHeaderLi = document.createElement('ul')
+let tweetDiv = document.createElement('div')
+tweetDiv.className = "MTATweetDivs"
+let tweetHeader = document.createElement('h1')
+let tweetBreak = document.createElement('br')
+let tweetUser = document.createElement('a')
+let tweetIcon = document.createElement('img')
+let tweetDesc = document.createElement('p')
+let tweetStamp = document.createElement('p')
+
+
+tweetHeader.innerText = "NYCT Subway. Wear A Mask."
+tweetIcon.height="50"
+tweetIcon.width="50"
+// tweetDiv.style.width="50vh"
+// tweetDiv.style.height="50vh"
+//tweetDiv.style.backgroundColor="white"
+tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+tweetUser.innerText = hashtag
+tweetUser.href = clickUrl
+tweetUser.target = "_blank"
+tweetDesc.innerText = tweetText
+tweetStamp.innerText = tweetTime
+
+
+MTATweetDiv.appendChild(tweetHeaderLi)
+tweetHeaderLi.appendChild(tweetDiv)
+tweetDiv.appendChild(tweetIcon)
+tweetDiv.appendChild(tweetHeader)
+tweetHeader.appendChild(tweetBreak)
+tweetDiv.appendChild(tweetUser)
+tweetDiv.appendChild(tweetDesc)
+tweetDiv.appendChild(tweetStamp)
+    
 }
 
 
 
 //2nd Half of Tweets
-for (let i = 7; i <= 20; i++) {
-    console.log("@NYCTSubway")
-    console.log(
+for (let i = 7; i <= 8; i++) {
+    //console.log(hashtag)
+
+
+    tweetText=
     allMTATweets
     .entries[i]
     .content
@@ -326,9 +455,8 @@ for (let i = 7; i <= 20; i++) {
     .result
     .legacy
     .full_text
-    )
-
-console.log(
+    
+    tweetTime=
     allMTATweets
     .entries[i]
     .content
@@ -337,20 +465,55 @@ console.log(
     .result
     .legacy
     .created_at
-    );
-
-tweetUrl = allMTATweets
-.entries[i]
-.content
-.itemContent
-.tweet_results
-.result
-.legacy
-.id_str
-
-console.log(
-    `https://twitter.com/NYCTSubway/status/${tweetUrl}`
-    );
+    
+    tweetUrl = 
+    allMTATweets
+    .entries[i]
+    .content
+    .itemContent
+    .tweet_results
+    .result
+    .legacy
+    .id_str
+    
+    clickUrl = `https://twitter.com/NYCTSubway/status/${tweetUrl}`
+    
+    //grabs MTA Tweet div
+    let MTATweetDiv = document.getElementById('MTATweets')
+    let tweetHeaderLi = document.createElement('ul')
+    let tweetDiv = document.createElement('div')
+    tweetDiv.className = "MTATweetDivs"
+    let tweetHeader = document.createElement('h1')
+    let tweetBreak = document.createElement('br')
+    let tweetUser = document.createElement('a')
+    let tweetIcon = document.createElement('img')
+    let tweetDesc = document.createElement('p')
+    let tweetStamp = document.createElement('p')
+    
+    
+    tweetHeader.innerText = "NYCT Subway. Wear A Mask."
+    tweetIcon.height="50"
+    tweetIcon.width="50"
+    // tweetDiv.style.width="50vh"
+    // tweetDiv.style.height="50vh"
+    //tweetDiv.style.backgroundColor="white"
+    tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+    tweetUser.innerText = hashtag
+    tweetUser.href = clickUrl
+    tweetUser.target="_blank"
+    tweetDesc.innerText = tweetText
+    tweetStamp.innerText = tweetTime
+    
+    
+    MTATweetDiv.appendChild(tweetHeaderLi)
+    tweetHeaderLi.appendChild(tweetDiv)
+    tweetDiv.appendChild(tweetIcon)
+    tweetDiv.appendChild(tweetHeader)
+    tweetHeader.appendChild(tweetBreak)
+    tweetDiv.appendChild(tweetUser)
+    tweetDiv.appendChild(tweetDesc)
+    tweetDiv.appendChild(tweetStamp)
+    
 
 }
 
@@ -360,3 +523,5 @@ console.log(
 )
 }
 
+}
+)
