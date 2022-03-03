@@ -139,6 +139,7 @@ let hashtag = "@NYPDTransit"
 let tweetText;
 let tweetTime;
 let tweetUrl;
+//let tweetMedia;
 
 
 // Tweets for NYPD Transit commented out For Now -- must add Event Listener
@@ -179,6 +180,8 @@ let tweetUrl;
         .legacy
         .full_text
         
+
+
         //The data containing timestamp of the tweet
         tweetTime=
         allNYPDTweets
@@ -200,11 +203,25 @@ let tweetUrl;
         .result
         .legacy
         .id_str
+
+         //The data containing the images of the tweet
+        //  tweetMedia=
+        //  allNYPDTweets
+        // .entries[i]
+        // .content
+        // .itemContent
+        // .tweet_results
+        // .result
+        // .legacy
+        // .entities
+        // .media[0]
+        // .media_url_https
+        
         
         //Clickable url - string interpolation of URL Data property
         clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
         
-        //grabs MTA Tweet div
+        //grabs NYPD Tweet div
         let NYPDTweetDiv = document.getElementById('NYPDTweets')
         //creates new elements to place tweets
         let tweetHeaderLi = document.createElement('ul')
@@ -214,6 +231,7 @@ let tweetUrl;
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
+        //let tweetImage = document.createElement('img')
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
@@ -225,6 +243,7 @@ let tweetUrl;
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
         tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        //tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
         tweetUser.target = "_blank"
@@ -276,10 +295,23 @@ let tweetUrl;
         .result
         .legacy
         .id_str
+
+        //The data containing the images of the tweet
+        // tweetMedia=
+        //  allNYPDTweets
+        // .entries[i]
+        // .content
+        // .itemContent
+        // .tweet_results
+        // .result
+        // .legacy
+        // .entities
+        // .media[0]
+        // .media_url_https
         
         clickUrl = `https://twitter.com/NYPDTransit/status/${tweetUrl}`
         
-        //grabs MTA Tweet div
+        //grabs NYPD Tweet div
         let NYPDTweetDiv = document.getElementById('NYPDTweets')
         let tweetHeaderLi = document.createElement('ul')
         let tweetDiv = document.createElement('div')
@@ -288,6 +320,7 @@ let tweetUrl;
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
+        //let tweetImage = document.createElement('img')
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
@@ -299,6 +332,7 @@ let tweetUrl;
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
         tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        //tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
         tweetUser.target = "_blank"
@@ -312,6 +346,7 @@ let tweetUrl;
         tweetDiv.appendChild(tweetHeader)
         tweetHeader.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
+        //tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
         tweetDiv.appendChild(tweetStamp)
     

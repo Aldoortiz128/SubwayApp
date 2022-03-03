@@ -2,20 +2,26 @@ body {
   background-color: teal
 }
 .articleCard{
-  background-color: yellow;
+  background-color: white;
+  border: 5px solid yellow;
   width: "800";
-  height: "400"
+  height: "400";
+  text-align: center;
 }
 .NYPDTweetDivs {
-  background-color: yellow;
+  border: 5px solid red;
+  background-color: white;
   width: "50vh";
-  height: "50vh"
+  height: "50vh";
+  text-align: left;
 }
 
 .MTATweetDivs {
-background-color: yellow;
+  border: 5px solid green;
+background-color: white;
 width: "50vh";
-  height: "50vh"
+  height: "50vh";
+  text-align: left;
 }
 
 #nav-bar {
