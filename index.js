@@ -125,7 +125,7 @@ fetch(req)
         }
         articleImage.onload=imgLoad
         articleImage.onerror=delayedLoad
-        articleImage.width="800"
+        articleImage.width="600"
         articleImage.height="600"
         articleImage.alt=targetArticle.source.name
         let articleCard = document.createElement('div')
@@ -264,6 +264,8 @@ let tweetMedia;
         
         //styling of new elements
         tweetHeader.innerText = "NYPD Transit"
+        tweetImage.height="250"
+        tweetImage.width="250"
         tweetIcon.height="50"
         tweetIcon.width="50"
         // tweetDiv.style.width="50vh"
@@ -363,6 +365,8 @@ let tweetMedia;
         
         
         tweetHeader.innerText = "NYPD Transit"
+        tweetImage.height="250"
+        tweetImage.width="250"
         tweetIcon.height="50"
         tweetIcon.width="50"
         // tweetDiv.style.width="50vh"
@@ -487,6 +491,7 @@ let tweetStamp = document.createElement('p')
 
 
 tweetHeader.innerText = "NYCT Subway. Wear A Mask."
+
 tweetIcon.height="50"
 tweetIcon.width="50"
 // tweetDiv.style.width="50vh"
