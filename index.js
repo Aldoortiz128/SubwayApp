@@ -214,16 +214,18 @@ let tweetMedia;
         .id_str
 
          //The data containing the images of the tweet
-        tweetMedia=
-        allNYPDTweets
-        .entries[i]
-        .content
-        .itemContent
-        .tweet_results
-        .result
-        .legacy
-        .entities
-        console.log(tweetMedia)
+       // tweetMedia=
+        //allNYPDTweets
+        ///.entries[i]
+        //.content
+        //.itemContent
+        //.tweet_results
+        //.result
+        // .legacy
+        // .extended_entities
+        // .media[0]
+        // .media_url_https
+        // console.log(tweetMedia)
         
         
         //Clickable url - string interpolation of URL Data property
