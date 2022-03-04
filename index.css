@@ -1,6 +1,9 @@
 body {
-  background: teal
+  background: teal;
+  font-family: "Lato"
 }
+
+
 
 #mission {
   font-size: 1.5em;
@@ -9,7 +12,8 @@ body {
 
 #missionText{
   font-size: 1.5em;
-  color: white
+  color: white;
+  text-align: center;
 }
 
 #footer {
@@ -71,14 +75,14 @@ height: auto;
   display: flex;
   justify-items: center;
   background-color: white;
-  border: 5px solid yellow;
+  border: 5px dotted yellow;
   max-width: 100%;
   font-size: 1.2em;
   height: auto;
   text-align: center;
 }
 .NYPDTweetDivs {
-  border: 5px solid yellow;
+  border: 5px dotted yellow;
   background-color: white;
   max-width: 75%;
   font-size: 1.5em;
@@ -89,7 +93,7 @@ height: auto;
 .MTATweetDivs {
   display: flex;
   justify-items: left;
-  border: 5px solid yellow;
+  border: 5px dotted yellow;
 background-color: white;
 max-width: 100%;
 font-size: 1.5em;
