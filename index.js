@@ -233,17 +233,25 @@ let tweetMedia;
     .legacy
 
     
+    //if its a retweet and a quote --- pull from quoted retweeted path
     if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    //if its a retweet and not a quote -- pull from retweeted path
     else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
 
+    //Original post if its not a retweet and not a quote --- pull from original path
     if(!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-    else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
- 
     
-    // if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-    // //else if (!tweetMediaSearch.retweeted_status_result && tweetMediSearch.is_qoute_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-    // else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-    // if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+    //If it's not a retweet, but is a qoute ---- pull from qouted path
+    else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {
+    tweetMedia =  
+    allNYPDTweets
+    .entries[i]
+    .content
+    .itemContent
+    .tweet_results
+    .result
+    .quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+ 
  
     
    
@@ -341,23 +349,25 @@ let tweetMedia;
         .result
         .legacy
 
-        if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-        else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-    
-        if(!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-        else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-     
-        
-                                                                                                                    
-        
-       
+          //if its a retweet and a quote --- pull from quoted retweeted path
+    if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    //if its a retweet and not a quote -- pull from retweeted path
+    else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
 
-        //if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-
-          
-      
+    //Original post if its not a retweet and not a quote --- pull from original path
+    if(!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
     
-       
+    //If it's not a retweet, but is a qoute ---- pull from qouted path
+    else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {
+        tweetMedia =  
+        allNYPDTweets
+        .entries[i]
+        .content
+        .itemContent
+        .tweet_results
+        .result
+        .quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    
 
        console.log(tweetMedia)
 
