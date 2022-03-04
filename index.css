@@ -1,8 +1,13 @@
 body {
   background: teal;
   font-family: "Lato"
+  margin: 0 auto
 }
 
+/*Media Querie for Mobile*/
+@media only screen and (min-width:884px){
+    
+}
 
 
 #mission {
@@ -105,6 +110,7 @@ height: auto;
   font-size: 2em;
   color: white;
   display: flex;
+  flex: wrap;
   border: 5px solid yellow;
   justify-content: space-around;
 }
@@ -113,6 +119,8 @@ h1, h3 {
 }
 #logo{
   display: block;
+  height: auto;
+  min-width: 25%;
   margin-left: auto;
   margin-right: auto;
 }
