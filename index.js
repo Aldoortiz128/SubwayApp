@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 // )
 
 
-let titlePage = document.getElementById('titlePage')
+let titlePage = document.getElementById('logo')
 titlePage.addEventListener('click', () => {
     document.getElementById('NYPDTweets').style.display='none'
     document.getElementById('articles').style.display='none'
