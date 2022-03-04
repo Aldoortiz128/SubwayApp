@@ -77,7 +77,7 @@ console.log(d.toLocaleDateString());
 let monthBeforeDate = d.toISOString().split('T')[0]
 console.log(monthBeforeDate) //Always a month before
 
-var url = 'http://newsapi.org/v2/everything?' +
+var url = 'https://newsapi.org/v2/everything?' +
           'q=MTA+NYC+crime&' +
           `from=${monthBeforeDate}&` +
           'sortBy=publishedAt&' +
