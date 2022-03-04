@@ -23,6 +23,7 @@ titlePage.addEventListener('click', () => {
     document.getElementById('NYPDTweets').style.display='none'
     document.getElementById('articles').style.display='none'
     document.getElementById('MTATweets').style.display='none'
+    document.getElementById('mission').style.display='block'
 }
 )
 
@@ -32,6 +33,7 @@ crimeFeed.addEventListener('click', () => {
     document.getElementById('NYPDTweets').style.display='block'
     document.getElementById('articles').style.display='none'
     document.getElementById('MTATweets').style.display='none'
+    document.getElementById('mission').style.display='none'
 })
 
 
@@ -41,6 +43,7 @@ document.getElementById('articles').style.display='none'
         document.getElementById('articles').style.display='block'
         document.getElementById('NYPDTweets').style.display='none'
         document.getElementById('MTATweets').style.display='none'
+        document.getElementById('mission').style.display='none'
     })
 
 document.getElementById('MTATweets').style.display='none'
@@ -49,6 +52,7 @@ updates.addEventListener('click', () => {
     document.getElementById('MTATweets').style.display='block'
     document.getElementById('NYPDTweets').style.display='none'
     document.getElementById('articles').style.display='none'
+    document.getElementById('mission').style.display='none'
 })
 //Notess:
 //Stretch feature: witness a crime?
