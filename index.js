@@ -234,12 +234,19 @@ let tweetMedia;
     .result
     .legacy
 
-    if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-    if(tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
-    //if (tweetMediaSearch.retweeted_status_result.result.quoted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
     
+    if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+
+    if(!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+    else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+ 
     
-    
+    // if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    // //else if (!tweetMediaSearch.retweeted_status_result && tweetMediSearch.is_qoute_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    // else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    // if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+ 
     
    
    console.log(tweetMedia)
@@ -283,8 +290,8 @@ let tweetMedia;
         NYPDTweetDiv.appendChild(tweetHeaderLi)
         tweetHeaderLi.appendChild(tweetDiv)
         tweetDiv.appendChild(tweetIcon)
-        tweetDiv.appendChild(tweetHeader)
-        tweetHeader.appendChild(tweetBreak)
+        //tweetDiv.appendChild(tweetHeader)
+        tweetDiv.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
         tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
@@ -336,8 +343,16 @@ let tweetMedia;
         .result
         .legacy
 
-        if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
-         if(tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+        if(tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+        else if (tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+    
+        if(!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === false) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
+        else if (!tweetMediaSearch.retweeted_status_result && tweetMediaSearch.is_quote_status === true) {tweetMedia = tweetMediaSearch.retweeted_status_result.result.quoted_status_result.result.legacy.extended_entities.media[0].media_url_https}
+     
+        
+                                                                                                                    
+        
+       
 
         //if(!tweetMediaSearch.retweeted_status_result) {tweetMedia = tweetMediaSearch.extended_entities.media[0].media_url_https}
 
@@ -508,8 +523,8 @@ tweetStamp.innerText = tweetTime
 MTATweetDiv.appendChild(tweetHeaderLi)
 tweetHeaderLi.appendChild(tweetDiv)
 tweetDiv.appendChild(tweetIcon)
-tweetDiv.appendChild(tweetHeader)
-tweetHeader.appendChild(tweetBreak)
+//tweetDiv.appendChild(tweetHeader)
+tweetDiv.appendChild(tweetBreak)
 tweetDiv.appendChild(tweetUser)
 tweetDiv.appendChild(tweetDesc)
 tweetDiv.appendChild(tweetStamp)
@@ -585,8 +600,8 @@ for (let i = 7; i <= 8; i++) {
     MTATweetDiv.appendChild(tweetHeaderLi)
     tweetHeaderLi.appendChild(tweetDiv)
     tweetDiv.appendChild(tweetIcon)
-    tweetDiv.appendChild(tweetHeader)
-    tweetHeader.appendChild(tweetBreak)
+    //tweetDiv.appendChild(tweetHeader)
+    tweetDiv.appendChild(tweetBreak)
     tweetDiv.appendChild(tweetUser)
     tweetDiv.appendChild(tweetDesc)
     tweetDiv.appendChild(tweetStamp)
