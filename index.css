@@ -1,5 +1,48 @@
 body {
-  background-color: teal
+  background: teal
+}
+
+#mission {
+  font-size: 1.5em;
+  color: white
+}
+
+#missionText{
+  font-size: 1.5em;
+  color: white
+}
+
+#footer {
+  font-size: 1.5em;
+  color: white;
+  bottom: 10px;
+}
+
+#MTATweets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  justify-items: left;
+}
+
+#NYPDTweets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  justify-items: left;
+}
+
+#articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  justify-items: left;
+}
+
+
+.header {
+color: white;
+font-size: 2.5em;
 }
 
 .tweetIcons{
@@ -14,25 +57,28 @@ width: 75px
 }
 
 .articleImage{
-  max-width: 33%;
+  max-width: 50%;
   height :auto
 }
 
 
 .NYPDTweetImages {
-max-width: 50%;
+max-width: 33%;
 height: auto;
 }
+
 .articleCard{
+  display: flex;
+  justify-items: center;
   background-color: white;
   border: 5px solid yellow;
   max-width: 75%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   height: auto;
   text-align: center;
 }
 .NYPDTweetDivs {
-  border: 5px solid red;
+  border: 5px solid yellow;
   background-color: white;
   max-width: 75%;
   font-size: 1.5em;
@@ -41,15 +87,19 @@ height: auto;
 }
 
 .MTATweetDivs {
-  border: 5px solid green;
+  display: flex;
+  justify-items: left;
+  border: 5px solid yellow;
 background-color: white;
-max-width: 75%;
+max-width: 100%;
 font-size: 1.5em;
 height: auto;
   text-align: left;
 }
 
 #nav-bar {
+  font-size: 2em;
+  color: white;
   display: flex;
   border: 5px solid yellow;
   justify-content: space-around;
