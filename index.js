@@ -80,7 +80,7 @@ console.log(monthBeforeDate) //Always a month before
 var url = 'http://newsapi.org/v2/everything?' +
           'q=MTA+NYC+crime&' +
           `from=${monthBeforeDate}&` +
-          'sortBy=popularity&' +
+          'sortBy=publishedAt&' +
           'apiKey=afa69d40429845f6918197165bc92bc6';
 //Update to be dynamic and pull data based on current date using string interpolation
 
