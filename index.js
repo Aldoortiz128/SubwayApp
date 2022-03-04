@@ -309,8 +309,8 @@ let tweetMedia;
         //tweetDiv.appendChild(tweetHeader)
         tweetDiv.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
-        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
+        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetStamp)
      }
     
@@ -420,8 +420,8 @@ let tweetMedia;
         //tweetDiv.appendChild(tweetHeader)
         tweetDiv.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
-        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
+        tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetStamp)
     
      }
