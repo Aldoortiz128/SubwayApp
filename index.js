@@ -161,7 +161,7 @@ let tweetMediaSearch;
 let tweetMedia;
 
 
-// Tweets for NYPD Transit commented out For Now -- must add Event Listener
+// Tweets for NYPD Transit 
  fetch("https://twitter135.p.rapidapi.com/UserTweets/?id=2795834466&count=21", {
  	"method": "GET",
  	"headers": {
@@ -198,9 +198,7 @@ let tweetMedia;
         .result
         .legacy
         .full_text
-        
-
-
+    
         //The data containing timestamp of the tweet
         tweetTime=
         allNYPDTweets
