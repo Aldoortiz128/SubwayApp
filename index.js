@@ -170,6 +170,7 @@ fetch(req)
 function NYPDTweetFetch() {
 let allNYPDTweets;
 let hashtag = "@NYPDTransit"
+let profileIcon;
 let tweetText;
 let tweetTime;
 let tweetUrl;
@@ -200,6 +201,8 @@ let tweetMedia;
      .timeline
      .instructions[1]
      console.log(allNYPDTweets)
+
+    profileIcon = allNYPDTweets.entries[0].content.itemContent.tweet_results.result.core.user_results.result.legacy.profile_image_url_https
     
  //First Half of Tweets
     for (let i = 0; i <= 5; i++) {
@@ -302,7 +305,8 @@ let tweetMedia;
         // tweetDiv.style.width="50vh"
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
-        tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        tweetIcon.src = profileIcon
+        //"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
         tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
@@ -415,7 +419,8 @@ let tweetMedia;
         // tweetDiv.style.width="50vh"
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
-        tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+        tweetIcon.src = profileIcon
+        //"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
         tweetImage.src = tweetMedia
         tweetUser.innerText = hashtag
         tweetUser.href = clickUrl
@@ -453,9 +458,7 @@ function MTATweetFetch() {
  let tweetTime;
  let tweetUrl;
  let clickUrl;
-
-
-
+ //let profileIcon;
 
 
 //Tweets for MTA Subway Updates
@@ -472,6 +475,8 @@ fetch("https://twitter135.p.rapidapi.com/UserTweets/?id=66379182&count=21", {
  .then(response => response.json())
 
  .then(response => {
+
+//profileIcon = allMTATweets.entries[0].content.itemContent.tweet_results.result.core.user_results.result.legacy.profile_image_url_https
 // storing tweets in an object variable 
  allMTATweets = 
  response
@@ -541,7 +546,8 @@ tweetHeader.innerText = "NYCT Subway. Wear A Mask."
 // tweetDiv.style.width="50vh"
 // tweetDiv.style.height="50vh"
 //tweetDiv.style.backgroundColor="white"
-tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+tweetIcon.src = 
+"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
 tweetUser.innerText = hashtag
 tweetUser.href = clickUrl
 tweetUser.target = "_blank"
@@ -619,7 +625,8 @@ for (let i = 7; i <= 8; i++) {
     // tweetDiv.style.width="50vh"
     // tweetDiv.style.height="50vh"
     //tweetDiv.style.backgroundColor="white"
-    tweetIcon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
+    tweetIcon.src = 
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
     tweetUser.innerText = hashtag
     tweetUser.href = clickUrl
     tweetUser.target="_blank"
