@@ -1,6 +1,28 @@
 body {
   background-color: teal
 }
+
+.tweetIcons{
+height: 75px;
+width: 75px
+}
+
+
+.articleImageError{
+  height: 600px;
+  width: 600px
+}
+
+.articleImage{
+  height: 100%;
+  width:auto
+}
+
+
+.NYPDTweetImages {
+max-width: 100%;
+height: auto
+}
 .articleCard{
   background-color: white;
   border: 5px solid yellow;

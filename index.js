@@ -120,8 +120,9 @@ fetch(req)
         function imgError(){
             articleImage.onload=null
             articleImage.src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png";
-            articleImage.width="600"
-            articleImage.height="600"
+            articleImage.className="articleImageError"
+            //articleImage.width="600"
+            //articleImage.height="600"
         }
         articlePublication.innerText = authorArticle
         articleDate.innerText = timeArticle
@@ -135,8 +136,9 @@ fetch(req)
         }
         articleImage.onload=imgLoad
         articleImage.onerror=delayedLoad
-        articleImage.width="600"
-        articleImage.height="600"
+        articleImage.className="articleImage"
+       // articleImage.width="600"
+       // articleImage.height="600"
         articleImage.alt=targetArticle.source.name
         let articleCard = document.createElement('div')
         articleCard.className = "articleCard"
@@ -276,21 +278,23 @@ let tweetMedia;
         //creates new elements to place tweets
         let tweetHeaderLi = document.createElement('ul')
         let tweetDiv = document.createElement('div')
-        tweetDiv.classList.add("NYPDTweetDivs")
+        tweetDiv.className = "NYPDTweetDivs"
         let tweetHeader = document.createElement('h1')
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
+        tweetIcon.className = "tweetIcons"
         let tweetImage = document.createElement('img')
+        tweetImage.className = "NYPDTweetImages"
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
         //styling of new elements
         tweetHeader.innerText = "NYPD Transit"
-        tweetImage.height="250"
-        tweetImage.width="250"
-        tweetIcon.height="50"
-        tweetIcon.width="50"
+       // tweetImage.height="250"
+        //tweetImage.width="250"
+        //tweetIcon.height="50"
+        //tweetIcon.width="50"
         // tweetDiv.style.width="50vh"
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
@@ -392,16 +396,18 @@ let tweetMedia;
         let tweetBreak = document.createElement('br')
         let tweetUser = document.createElement('a')
         let tweetIcon = document.createElement('img')
+        tweetIcon.className = "tweetIcons"
         let tweetImage = document.createElement('img')
+        tweetImage.className = "NYPDTweetImages"
         let tweetDesc = document.createElement('p')
         let tweetStamp = document.createElement('p')
         
         
         tweetHeader.innerText = "NYPD Transit"
-        tweetImage.height="250"
-        tweetImage.width="250"
-        tweetIcon.height="50"
-        tweetIcon.width="50"
+        //tweetImage.height="250"
+       // tweetImage.width="250"
+       // tweetIcon.height="50"
+       // tweetIcon.width="50"
         // tweetDiv.style.width="50vh"
         // tweetDiv.style.height="50vh"
         //tweetDiv.style.backgroundColor="white"
@@ -519,14 +525,15 @@ let tweetHeader = document.createElement('h1')
 let tweetBreak = document.createElement('br')
 let tweetUser = document.createElement('a')
 let tweetIcon = document.createElement('img')
+tweetIcon.className = "tweetIcons"
 let tweetDesc = document.createElement('p')
 let tweetStamp = document.createElement('p')
 
 
 tweetHeader.innerText = "NYCT Subway. Wear A Mask."
 
-tweetIcon.height="50"
-tweetIcon.width="50"
+//tweetIcon.height="50"
+//tweetIcon.width="50"
 // tweetDiv.style.width="50vh"
 // tweetDiv.style.height="50vh"
 //tweetDiv.style.backgroundColor="white"
@@ -597,13 +604,14 @@ for (let i = 7; i <= 8; i++) {
     let tweetBreak = document.createElement('br')
     let tweetUser = document.createElement('a')
     let tweetIcon = document.createElement('img')
+    tweetIcon.className = "tweetIcons"
     let tweetDesc = document.createElement('p')
     let tweetStamp = document.createElement('p')
     
     
     tweetHeader.innerText = "NYCT Subway. Wear A Mask."
-    tweetIcon.height="50"
-    tweetIcon.width="50"
+    //tweetIcon.height="50"
+    //tweetIcon.width="50"
     // tweetDiv.style.width="50vh"
     // tweetDiv.style.height="50vh"
     //tweetDiv.style.backgroundColor="white"
