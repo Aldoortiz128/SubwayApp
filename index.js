@@ -16,6 +16,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
 // }
 // )
+
+
+let titlePage = document.getElementById('titlePage')
+titlePage.addEventListener('click', () => {
+    document.getElementById('NYPDTweets').style.display='none'
+    document.getElementById('articles').style.display='none'
+    document.getElementById('MTATweets').style.display='none'
+}
+)
+
 document.getElementById('NYPDTweets').style.display='none'
 let crimeFeed= document.getElementById('crimeFeed')
 crimeFeed.addEventListener('click', () => {
@@ -407,8 +417,8 @@ let tweetMedia;
         NYPDTweetDiv.appendChild(tweetHeaderLi)
         tweetHeaderLi.appendChild(tweetDiv)
         tweetDiv.appendChild(tweetIcon)
-        tweetDiv.appendChild(tweetHeader)
-        tweetHeader.appendChild(tweetBreak)
+        //tweetDiv.appendChild(tweetHeader)
+        tweetDiv.appendChild(tweetBreak)
         tweetDiv.appendChild(tweetUser)
         tweetDiv.appendChild(tweetImage)
         tweetDiv.appendChild(tweetDesc)
