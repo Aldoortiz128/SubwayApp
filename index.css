@@ -20,29 +20,32 @@ width: 75px
 
 
 .NYPDTweetImages {
-max-width: 33%;
-height: auto
+max-width: 50%;
+height: auto;
 }
 .articleCard{
   background-color: white;
   border: 5px solid yellow;
-  width: "800";
-  height: "400";
+  max-width: 75%;
+  font-size: 1.5em;
+  height: auto;
   text-align: center;
 }
 .NYPDTweetDivs {
   border: 5px solid red;
   background-color: white;
-  width: "50vh";
-  height: "50vh";
+  max-width: 75%;
+  font-size: 1.5em;
+  height: auto;
   text-align: left;
 }
 
 .MTATweetDivs {
   border: 5px solid green;
 background-color: white;
-width: "50vh";
-  height: "50vh";
+max-width: 75%;
+font-size: 1.5em;
+height: auto;
   text-align: left;
 }
 
