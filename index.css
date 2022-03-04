@@ -9,18 +9,18 @@ width: 75px
 
 
 .articleImageError{
-  height: 600px;
-  width: 600px
+  max-width:20%;
+  height: auto
 }
 
 .articleImage{
-  height: 100%;
-  width:auto
+  max-width: 33%;
+  height :auto
 }
 
 
 .NYPDTweetImages {
-max-width: 100%;
+max-width: 33%;
 height: auto
 }
 .articleCard{
