@@ -77,11 +77,25 @@ console.log(d.toLocaleDateString());
 let monthBeforeDate = d.toISOString().split('T')[0]
 console.log(monthBeforeDate) //Always a month before
 
-var url = 'https://newsapi.org/v2/everything?' +
-          'q=MTA+NYC+crime&' +
-          `from=${monthBeforeDate}&` +
-          'sortBy=publishedAt&' +
-          'apiKey=afa69d40429845f6918197165bc92bc6';
+
+//Only pulls news articles from last month though
+//Alternative free API (same format as NewsAPI):
+//https://gnews.io/api/v4/search?q=MTA&lang=en&token=dbdbd4e9c40c88999c2dfc680db611e6
+
+var url = 'https://gnews.io/api/v4/search?'
+           +'q=MTA&'
+           +'lang=en&'
+           +`from=${monthBeforeDate}&`
+           +'sortby=publishedAt&'
+           +'token=dbdbd4e9c40c88999c2dfc680db611e6'
+
+
+
+// var url = 'https://newsapi.org/v2/everything?' +
+//           'q=MTA+NYC+crime&' +
+//           `from=${monthBeforeDate}&` +
+//           'sortBy=publishedAt&' +
+//           'apiKey=afa69d40429845f6918197165bc92bc6';
 //Update to be dynamic and pull data based on current date using string interpolation
 
 var req = new Request(url);
@@ -116,10 +130,11 @@ fetch(req)
         let articleDate = document.createElement('p')
         let articleImage = document.createElement('img')
         let articleBreak = document.createElement('br')
-        articleImage.src=allArticles[i].urlToImage
+        articleImage.src=allArticles[i].image
+        //if using NewsAPI -- The property is urlToImage
     // articleImage.src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/MTA_NYC_logo.svg/1862px-MTA_NYC_logo.svg.png"
         function imgLoad(){
-            articleImage.src=allArticles[i].urlToImage
+            articleImage.src=allArticles[i].image
         }
         function imgError(){
             articleImage.onload=null
