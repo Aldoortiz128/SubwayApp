@@ -1,5 +1,2 @@
 # SubwayApp
-4 Pages
-- Home Page 
-- Subway Updates Page
-- Subway Attacks Page
+An app that uses that fetches data from the MTA twitter accounts to track subway updates and subway crime.
